@@ -2,6 +2,8 @@
 
 <h2>Employee Table</h2>
   
+<h3>Custom pipe</h3>
+
 <table>
     <thead>
         <tr>
@@ -13,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees;trackBy:trackByEmpId">
+        <tr *ngFor="let employee of employees">
             <td>{{ employee.id }}</td>
             <td>{{ employee.gender | genderToTitle }}</td>
             <td>{{ employee.name }}</td>
@@ -22,3 +24,26 @@
         </tr>
     </tbody>
 </table>
+
+<h3>Filter pipe</h3>
+
+<table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Name</th>
+                <th>Annual Salary</th>
+                <th>Date of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees | filterPipe : 0">
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.gender | genderToTitle }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.annualSalary }}</td>
+                <td>{{ employee.dateOfBirth }}</td>
+            </tr>
+        </tbody>
+    </table>
